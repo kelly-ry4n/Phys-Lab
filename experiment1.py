@@ -10,14 +10,14 @@ def B_from_current(I_total):
     print 'THe earth avg is', I_earth
     return 8*(4*pi*10**(-7))*72*(I_total-I_earth)/(0.33*sqrt(125))
 
-def average(B_values):
-    return sum(B_values)/len(B_values)
+def average(values):
+    return sum(values)/len(values)
 
-## TODO
+## Voltage and current uncertainties
 I_ucert = 0.02
 V_ucert = 0.05
 
-## TODO
+## The raw data for current.
 I_values = [
                 [2.706,2.306,2.006,1.775,1.602],
                 [3.260,2.760,2.410,2.140,1.917],
@@ -26,12 +26,8 @@ I_values = [
                 [4.327,3.658,3.176,2.806,2.515]
             ]
 
-for row in I_values:
-    for val  in row:
-        print str(val)+' & ',
-    print '\\\\'
 
-## DONE -- don't change
+## Raw voltage values, and applying uncertainties
 V_values = [20,30,40,50,55.2]
 V_values = [ufloat((V,V_ucert)) for V in V_values]
 R_values = array([0.0325,0.039,0.045,0.0515,0.0575])
