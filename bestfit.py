@@ -68,8 +68,8 @@ def sig_dig(number, sigfig):
     return float(("%.15f" % (round(number,
             int(-1 * floor(log10(number)) + (sigfig - 1))))).rstrip("0").rstrip("."))
 
-def sig_dig(number, sigfig):
-    return number
+# def sig_dig(number, sigfig):
+#     return number
 
 def plot_with_bars_and_line(xs,ys,filename, label='$X$ (units) vs $Y$ (units)',
                              format='.', xlabel='X', ylabel='Y'):
@@ -100,7 +100,7 @@ def plot_with_bars_and_line(xs,ys,filename, label='$X$ (units) vs $Y$ (units)',
     ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.07),
           fancybox=True, shadow=True, ncol=1)
 
-    plt.show()
+    plt.savefig(filename)
 
     return a, b
 
